@@ -123,3 +123,20 @@ Implicit values available in a function
             arguments[1]
             arguments[2]
             arguments.length => # of arguments
+
+'this' in JavaScript
+    It DOESNOT matter where a function is OR who owns a function
+    What matters is HOW the function is invoked
+
+    this -> invocation context
+
+    Function Invocation Patterns
+        1. As a method of an object (obj)
+                this -> obj
+
+        2. As a function
+                this -> global scope (window object in the browser)
+
+        3. Using the 'call' method of the function
+
+        4. Using the 'apply' method of the function
