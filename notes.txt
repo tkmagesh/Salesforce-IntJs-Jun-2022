@@ -9,12 +9,17 @@ Schedule:
     20 mins tea break between 1st & 2nd and 3rd & 4th sessions
     1 hr lunch break between 2nd & 3rd session
 
+Recordings:
+    https://forms.gle/gTJwnshuJWAk3u6z9
+
 About You:
     Name
     Job Role
     Primary Skillset
     Experience in JavaScript
     Any interesting shows you watched OR books you read recently (optional)
+
+
 
 JavaScript (ES5)
 
@@ -118,7 +123,7 @@ Abstract Equality Comparison Algorithm  (comparison using '==')
 Implicit values available in a function
     this
     arguments
-        - Array like object with all the argument values passed to the function
+        - Array LIKE object with all the argument values passed to the function
             arguments[0]
             arguments[1]
             arguments[2]
@@ -138,5 +143,11 @@ Implicit values available in a function
                 this -> global scope (window object in the browser)
 
         3. Using the 'call' method of the function
+                fn.call(thisCtx, arg1, arg2, arg3....)
 
         4. Using the 'apply' method of the function
+                fn.apply(thisCtx, [arg1, arg2, arg3...])
+
+
+Secrets of JavaScript Ninja
+    - John Resig
