@@ -63,11 +63,50 @@ JavaScript (ES5)
                 console.log('I am a function');
             }
 
-        
+
+        Higher Order Functions
+            Functions can be passed as arguments to other Functions
+
+                function fn(x){
+                    console.log('typeof x is ', typeof x);
+                }
+                var f = function(){}
+                fn(f)
+
+            Function can be returned as a return value
+
+                function getAdder(){
+                    return function(x,y){
+                        return x + y;
+                    }
+                }
+                var add = getAdder()
+                add(100,200)
+                getAdder()(100,200)
+
+    Loosely typed
+        function add(x,y){
+            return x + y
+        }
+
+        add(10,20)                                                      //=> 30
+        add(10,"20")                                                    //=> 30
+        add(10,"abc")                                                   //=> 10
+        add([10,20],[30,40])                                            //=> 100
+        add([10,20],[30,"40"])                                          //=> 100
+        add([10,20],[30,"abc"])                                         //=> 60
+        add([10,20],[30,[40,"abc"]])                                    //=> 100
+        add(function(){return 10;}, function(){ return 20;})            //=> 30
+        add(function(){return [10,20];}, function(){ return [30,40];})  //=> 100
+        add(10)                                                         //=> 10
+        add()                                                           //=> 0
+        add([function(){return [10,20];}, function(){ return [30,40];}]) //=> 100
 
 
 
-var x 
-x = 10
-x = "asadsf"
+$(domNode)
+$([domNode1, domNode1])
+$('#logo-events')
+$(fn)
+$($)
 
