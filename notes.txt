@@ -1,0 +1,73 @@
+Magesh Kuppan
+
+Methodology:
+    No powerpoint
+    100% handson driven
+
+Schedule:
+    4 Session of 1:30 Hrs duration
+    20 mins tea break between 1st & 2nd and 3rd & 4th sessions
+    1 hr lunch break between 2nd & 3rd session
+
+About You:
+    Name
+    Job Role
+    Primary Skillset
+    Experience in JavaScript
+    Any interesting shows you watched OR books you read recently (optional)
+
+JavaScript (ES5)
+
+    Data Types
+        string
+        number
+        boolean
+        undefined
+
+        other types
+            Object
+            Function
+            null
+
+    Programming Constructs
+        var, if else, switch case, try catch finally, for, for in, while, throw
+
+    APIs
+        Array, Object, Error, Date, Math, timers (setTimeout, clearTimeout, setInterval, clearInterval), RegEx
+
+    Special Features
+
+    Line Oriented Languages
+    Procedural Languages
+    Object Based Languages
+    Object Oriented Languages
+    Functional Languages
+
+    Functional Language & Object Based Language
+
+    Functional Language
+        Functions as data (object)
+
+        Creation
+            var fn = function(){}
+            var fn = new Function()
+
+            var add = new Function("x", "y", "return x + y;")
+
+        Functions can have attributes
+            var fn = function(){}
+            fn.id = 100
+
+        Functions can have methods
+            fn.whoAmI = function(){
+                console.log('I am a function');
+            }
+
+        
+
+
+
+var x 
+x = 10
+x = "asadsf"
+
