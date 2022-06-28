@@ -10,14 +10,33 @@
             font-size: 18pt;
         }
     </style>
+    <script>
+        
+        (function myApp(){
+            var count = 0;
+            function onBtnTrackClick() {
+                count++
+                document.getElementById('spanCount').innerText = count;
+            }
+            function onDocumentLoad(){
+                var btnTrack = document.getElementById('btnTrack');
+                btnTrack.addEventListener('click', onBtnTrackClick);
+            }
+            window.addEventListener('load', onDocumentLoad)
+        })();
+
+       // myApp();
+
+    </script>
 </head>
 <body>
     <h1>Click Tracker</h1>
     <hr>
-    <button id="btnTrack">Track</button>
+    <button id="btnTrack" >Track</button>
     <div>
         <span>Count : </span>
         <span id="spanCount">0</span>
     </div>
+   
 </body>
 </html>
