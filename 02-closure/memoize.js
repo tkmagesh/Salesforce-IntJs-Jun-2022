@@ -10,6 +10,8 @@ function memoize(fn){
     };
 }
 
+
+
 var isPrime = memoize(function(no){
     for (var i =2; i <= (no/2); i++ ){
         if (no % i === 0)

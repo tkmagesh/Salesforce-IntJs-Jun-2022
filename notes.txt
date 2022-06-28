@@ -150,6 +150,10 @@ Implicit values available in a function
 
         5. As an "Immediately Invoked Function Expression"
 
+        6. Using the 'new' keyword
+                this -> new object
+                this -> returned by default
+
 Secrets of JavaScript Ninja
     - John Resig
 
