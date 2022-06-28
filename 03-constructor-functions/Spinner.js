@@ -1,6 +1,16 @@
 var spinner = new Spinner()
 
 //Spinner?
+function Spinner(){
+    var counter = 0;
+    this.up = function(){
+        return ++counter;
+    }
+    this.down = function(){
+        return --counter;
+    }
+}
+
 
 spinner.up() //=> 1
 spinner.up() //=> 2
