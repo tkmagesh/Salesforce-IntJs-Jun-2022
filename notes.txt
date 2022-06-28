@@ -166,3 +166,7 @@ Pure Functions
 
 Prototypal Inheritance
     One object acts as the base for a family of objects
+
+
+Hiding anything in JavaScript is COSTLY!!!
+
