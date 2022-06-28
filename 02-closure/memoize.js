@@ -1,11 +1,12 @@
 function memoize(fn){
     var cache = {};
-    return function(no){
-        if (typeof cache[no] !== 'undefined')
-            return cache[no];
-        console.log('processing ', no);
-        cache[no] = fn(no);
-        return cache[no];
+    return function(){
+        var key = JSON.stringify(arguments);
+        if (typeof cache[key] !== 'undefined')
+            return cache[key];
+        console.log('processing ', arguments);
+        cache[key] = fn.apply(this, arguments);
+        return cache[key];
     };
 }
 
@@ -20,3 +21,4 @@ var isPrime = memoize(function(no){
 var isOddOrEven = memoize(function(no){
     return no % 2 === 0 ? 'even' : 'odd';
 })
+
