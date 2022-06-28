@@ -54,6 +54,7 @@ var spinner = (function (){
 
 })()
 
+/* 
 function spinnerFactory(){
     var counter = 0;
 
@@ -70,6 +71,18 @@ function spinnerFactory(){
         down : down
     };
 
+} */
+
+function spinnerFactory(){
+    var counter = 0;
+    return {
+        up : function(){
+            return ++counter;
+        },
+        down : function(){
+            return --counter;
+        }
+    }
 }
 
 var s1 = spinnerFactory();
