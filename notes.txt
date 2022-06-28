@@ -162,3 +162,7 @@ Pure Functions
     - Functions with NO side effects
 
     - Can replace the invocation of the function with the result of the function invocation without affecting the final outcome
+
+
+Prototypal Inheritance
+    One object acts as the base for a family of objects
