@@ -128,3 +128,37 @@ describe('Sorting', function(){
         })
     })
 });
+
+describe('Filtering', function(){
+    describe('Filter stationary products', function(){
+        function filterStationaryProducts(){
+            /*  */
+        }
+        var stationaryProducts = filterStationaryProducts();
+        console.table(stationaryProducts)
+    });
+
+    describe('Filter any list by any criteria', function(){
+        function filter(/*  */){
+            /*  */
+        }
+        describe("Products by cost", function(){
+            describe('costly products [cost > 50]', function(){
+                /*  */
+            })
+            describe('affordable products', function(){
+                /*  */
+            })
+        });
+
+        describe('Products by units', function(){
+            describe('understocked products [units < 60]', function(){
+                /*  */
+            })
+
+            describe('well stocked products', function(){
+                /*  */
+            })
+        })
+    })
+})
