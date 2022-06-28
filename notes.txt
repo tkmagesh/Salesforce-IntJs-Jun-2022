@@ -148,6 +148,13 @@ Implicit values available in a function
         4. Using the 'apply' method of the function
                 fn.apply(thisCtx, [arg1, arg2, arg3...])
 
+        5. As an "Immediately Invoked Function Expression"
 
 Secrets of JavaScript Ninja
     - John Resig
+
+
+Pure Functions
+    - Functions with NO side effects
+
+    - Can replace the invocation of the function with the result of the function invocation without affecting the final outcome
