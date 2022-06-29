@@ -1,0 +1,93 @@
+ES6 (ECMAScript 6, ES2015, ESNext) Features
+    1. let
+    
+    2. const
+    
+    3. Array destructuring
+        var nos = [3,1,4,2,5]
+        var [x, y] = nos
+
+    4. Rest operator (Array)
+        var nos = [3,1,4,2,5]
+        var [x, y, ...z] = nos
+
+        function add(...args){
+
+        }
+
+    5. Spread operator (Array)
+        var nos = [3,1,4,2,5]
+        var newNos = [ ...nos, 10, 20, 30 ]
+
+        add(...nos)
+
+    6. Object destructuring
+        var emp = { id : 100, name : 'Magesh', city : 'Bangalore' }
+
+        var {id , city} = emp
+
+        var {id : x , city : y} = emp
+
+    7. Rest operator (object)
+        var emp = { id : 100, name : 'Magesh', city : 'Bangalore' }
+        
+        var { id, ...z } = emp
+
+    8. Spread operator (object)
+        var emp = { id : 100, name : 'Magesh', city : 'Bangalore' }
+        
+        var newEmp = { ...emp, salary : 10000, city : 'Delhi' }
+
+    9. object construction enhancements
+        let id = 100, name = 'Magesh', city = 'Bangalore'
+        
+        let emp = { id , name , city  }
+
+    10. default parameters
+        function add(x=100, y=200){
+            return x + y;
+        }
+
+        add()
+        
+        add(10)
+        
+        add(undefined, 20)
+        
+        add(10,20)
+
+    11. arrow function
+
+        /*
+
+        //function statement
+        function add(x,y){
+            return x + y;
+        }
+
+        //function expression
+        var add = function(x,y){
+            return x + y;
+        }
+
+        //arrow function
+        var add = (x,y) => {
+            return x + y;
+        }
+        */
+
+        var add = (x,y) => x + y;
+        
+        var isOdd = x => x % 2 !== 0;
+
+    12. iterators
+        for (let no of nos)
+            console.log(no)
+    
+    13. symbol
+            Every symbol instance is UNIQUE
+                let s1 = Symbol(), s2 = Symbol()
+
+    14. Class
+            Employee.js
+    

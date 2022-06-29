@@ -182,17 +182,27 @@ describe('Filtering', function(){
         }
 
         describe("Products by cost", function(){
+            //ES5
+            /* 
             var costlyProductPredicate = function(product){
                 return product.cost > 60;
             };
 
             var stationaryProductPredicate = function(product){
                 return product.category === 'stationary'
-            };
+            }; 
+            */
+
+            //ES6
+
+            var costlyProductPredicate = product => product.cost > 60;
+            
+
+            var stationaryProductPredicate = product => product.category === 'stationary';
 
             var costlyStationaryProductPredicate = and(costlyProductPredicate, stationaryProductPredicate)
 
-            describe('costly products [cost > 60]', function(){
+            describe('costly products [cost > 60]', () => {
                 var costlyProducts = filter(products, costlyProductPredicate)
                 console.table(costlyProducts)
             })
