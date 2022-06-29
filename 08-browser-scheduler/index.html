@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Scheduler</title>
+    <script>
+        function doWork(onComplete, onProgress){
+            var totalIterations = 1000,
+                currentIteration = 0;
+            function oneIteration(){
+                for(let i = 0; i < (20000/totalIterations); i++)
+                    for(let j = 0; j < 10000; j++)
+                        for(let k =0; k < 100; k++){
+
+                        }
+                currentIteration++
+                if (currentIteration % 10 === 0){
+                    var percentCompletion = (currentIteration/totalIterations) * 100
+                    onProgress(percentCompletion);
+                }
+
+                if (currentIteration < totalIterations){
+                    setTimeout(oneIteration);
+                } else {
+                    console.log('Done!');
+                    onComplete()
+                }
+            }
+            setTimeout(oneIteration);
+        }
+
+        function displayMessage(msg){
+            document.getElementById('divMessages').innerHTML += msg + '<br/>'
+        }
+
+        function onBtnDoWorkClick(){
+            displayMessage("Work Started");// dom updated but the screen not repainted
+            doWork(onWorkCompletion, onWorkProgress);
+        }
+
+        function onWorkCompletion() {
+            displayMessage('Work Completed');
+        }
+
+        function onWorkProgress(percentCompletion){
+            document.getElementById('workProgress').value = percentCompletion;
+        }
+
+        function onDocumentLoad(){
+            let btnDoWork = document.getElementById('btnDoWork');
+            btnDoWork.addEventListener('click', onBtnDoWorkClick);
+        }
+
+        window.addEventListener('load', onDocumentLoad);
+
+    </script>
+</head>
+<body>
+    <h1>Browser Scheduler</h1>
+    <hr>
+    <input type="text" name="" id="">
+    <button id="btnDoWork">Do Work</button>
+    <div>
+        <progress id="workProgress" min="0" max="100" value="0"></progress>
+    </div>
+    <div id="divMessages">
+
+    </div>
+
+</body>
+</html>

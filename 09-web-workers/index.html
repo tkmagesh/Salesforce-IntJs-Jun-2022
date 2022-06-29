@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Workers</title>
+    <script>
+        let worker = new Worker('my-work.js');
+        worker.addEventListener('message', function(evt){
+            if (evt.data === 'completed'){
+                onWorkCompletion();
+                return
+            }
+            if (evt.data.type === 'progress'){
+                document.getElementById('workProgress').value = evt.data.percentCompleted;
+            }
+        })
+        function displayMessage(msg) {
+            document.getElementById('divMessages').innerHTML += msg + '<br/>'
+        }
+
+        function onBtnDoWorkClick() {
+            displayMessage("Work Started");// dom updated but the screen not repainted
+            worker.postMessage('start');
+        }
+
+        function onWorkCompletion() {
+            displayMessage('Work Completed');
+        }
+
+        function onWorkProgress(percentCompletion) {
+            document.getElementById('workProgress').value = percentCompletion;
+        }
+
+        function onDocumentLoad() {
+            let btnDoWork = document.getElementById('btnDoWork');
+            btnDoWork.addEventListener('click', onBtnDoWorkClick);
+        }
+
+        window.addEventListener('load', onDocumentLoad);
+
+    </script>
+</head>
+<body>
+    <h1>Web Workers</h1>
+    <hr>
+    <input type="text" name="" id="">
+    <button id="btnDoWork">Do Work</button>
+    <div>
+        <progress id="workProgress" min="0" max="100" value="0"></progress>
+    </div>
+    <div id="divMessages"></div>
+</body>
+</html>
