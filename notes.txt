@@ -184,3 +184,5 @@ Try the following
         * max
         * reject
 
+Falsy Values
+    0, '', null, undefined, NaN, false

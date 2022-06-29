@@ -8,3 +8,8 @@ function Employee(id, name, salary){
     this.salary = salary;
     //this -> returned by default
 }
+
+//static method
+Employee.isEmployee = function(obj){
+    return obj instanceof Employee
+}
