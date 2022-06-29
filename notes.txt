@@ -170,3 +170,17 @@ Prototypal Inheritance
 
 Hiding anything in JavaScript is COSTLY!!!
 
+
+Try the following
+    Implement the following functions from underscore.js
+        * after
+        * before
+        * wrap
+        * compose
+        * once
+        * each
+        * map
+        * min
+        * max
+        * reject
+

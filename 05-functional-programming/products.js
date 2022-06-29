@@ -21,6 +21,14 @@ function describe(title, fn){
     console.groupEnd();
 }
 
+function describeGroup(obj){
+    for (var key in obj){
+        describe('Key [' + key + ']', function(){
+            console.table(obj[key]);
+        });
+    }
+}
+
 describe('Initial List', function(){
     console.table(products)
 });
@@ -132,22 +140,79 @@ describe('Sorting', function(){
 describe('Filtering', function(){
     describe('Filter stationary products', function(){
         function filterStationaryProducts(){
-            /*  */
+            var stationaryProducts = [];
+            for (var i =0; i < products.length; i++){
+                var product = products[i];
+                if (product.category === 'stationary')
+                    stationaryProducts.push(product)
+            }
+            return stationaryProducts;
         }
         var stationaryProducts = filterStationaryProducts();
         console.table(stationaryProducts)
     });
 
     describe('Filter any list by any criteria', function(){
-        function filter(/*  */){
-            /*  */
+        function filter(list, predicate){
+            var result = [];
+            for (var i =0; i < list.length; i++){
+                var item = list[i];
+                if (predicate(item))
+                    result.push(item)
+            }
+            return result;
         }
+
+        function negate(predicate){
+            return function(){
+                return !predicate.apply(this, arguments) 
+            };
+        }
+
+        function or(predicate1, predicate2){
+            return function(){
+                return predicate1.apply(this, arguments) || predicate2.apply(this, arguments) 
+            }
+        }
+
+        function and(predicate1, predicate2){
+            return function(){
+                return predicate1.apply(this, arguments) && predicate2.apply(this, arguments) 
+            }
+        }
+
         describe("Products by cost", function(){
-            describe('costly products [cost > 50]', function(){
-                /*  */
+            var costlyProductPredicate = function(product){
+                return product.cost > 60;
+            };
+
+            var stationaryProductPredicate = function(product){
+                return product.category === 'stationary'
+            };
+
+            var costlyStationaryProductPredicate = and(costlyProductPredicate, stationaryProductPredicate)
+
+            describe('costly products [cost > 60]', function(){
+                var costlyProducts = filter(products, costlyProductPredicate)
+                console.table(costlyProducts)
             })
+
+            /* 
+            var affordableProductPredicate = function(product){
+                return product.cost <= 50;
+            }; 
+            */
+
+            var affordableProductPredicate = negate(costlyProductPredicate);
+
             describe('affordable products', function(){
-                /*  */
+                var affordableProducts = filter(products, affordableProductPredicate)
+                console.table(affordableProducts);
+            })
+
+            describe('costly stationary products', function(){
+                var costlyStationaryProducts = filter(costlyStationaryProductPredicate);
+                console.table(costlyStationaryProducts);
             })
         });
 
@@ -155,10 +220,32 @@ describe('Filtering', function(){
             describe('understocked products [units < 60]', function(){
                 /*  */
             })
-
             describe('well stocked products', function(){
                 /*  */
             })
         })
     })
 })
+
+describe('Grouping', function(){
+    function group(list, keySelector){
+        var result = {};
+        for (var i =0; i < list.length; i++){
+            var item = list[i],
+                key = keySelector(item);
+            if (typeof result[key] === 'undefined')
+                result[key] = [];
+            result[key].push(item);
+        }
+        return result;
+    }
+
+    describe("Products by category", function(){
+        var categoryKeySelector = function(product){
+            return product.category;
+        };
+
+        var productsByCategory = group(products, categoryKeySelector);
+        describeGroup(productsByCategory);
+    });
+});
