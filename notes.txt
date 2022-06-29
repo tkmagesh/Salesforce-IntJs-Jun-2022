@@ -189,7 +189,8 @@ Falsy Values
 
 
 
-pubsub Api
+Asynchronous Operation
+    An operation initiated but not waited for the completion
 
 
     
