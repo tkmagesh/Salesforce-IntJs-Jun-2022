@@ -26,3 +26,15 @@ class Employee {
         return obj instanceof Employee;
     }
 }
+
+//inheritance
+class FulltimeEmployee extends Employee{
+    benefits = '';
+    constructor(id, name, salary, benefits){
+        super(id, name, salary);
+        this.benefits = benefits;
+    }
+    display(){
+        return `${super.display()}, benefits = ${this.benefits}`;
+    }
+}
