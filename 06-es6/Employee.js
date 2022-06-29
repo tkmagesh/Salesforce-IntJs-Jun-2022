@@ -19,7 +19,7 @@ class Employee {
     }
 
     display(){
-        console.log(this.id, this.name, this.salary);
+        return `id = ${this.id}, name = ${this.name}, salary = ${this.salary}`;
     }
 
     static isEmployee(obj){

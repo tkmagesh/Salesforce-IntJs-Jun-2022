@@ -90,4 +90,8 @@ ES6 (ECMAScript 6, ES2015, ESNext) Features
 
     14. Class
             Employee.js
+
+    15. template strings
     
+Reference:
+    https://es-features.org
